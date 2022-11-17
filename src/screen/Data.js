@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     color: 'blue',
     fontSize: 17,
     marginTop: 10,
+    width:230
     // textAlign: 'center',
   },
   FirstNameContainer: {

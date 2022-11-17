@@ -83,6 +83,7 @@ const Login = () => {
           style={styles.input}
           value={phoneNumber}
           onChangeText={fn => setPhonenumber(fn)}
+          keyboardType={'number-pad'}
         />
       </View>
       <View style={styles.second}>
@@ -91,6 +92,7 @@ const Login = () => {
           style={styles.input}
           value={state}
           onChangeText={fn => setState(fn)}
+          
         />
       </View>
       <View style={styles.second}>
@@ -107,6 +109,7 @@ const Login = () => {
           style={styles.input}
           value={pincode}
           onChangeText={fn => setPincode(fn)}
+          keyboardType={'number-pad'}
         />
       </View>
       <View style={styles.second}>
