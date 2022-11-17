@@ -1,15 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { About, Checkout, Data, Home, Login } from '../screen';
+import { Data, Login } from '../screen';
+import { Bottomtab } from './Layouts/Index';
 
 
 const Stack = createNativeStackNavigator();
 const PrivateRoutes = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Bottomtab">
     {/* <Stack.Screen name="Login" component={Login} />  */}
-
+<Stack.Screen name='Bottomtab' component={Bottomtab}  options={{
+            headerShown: false,
+          }}/>
          <Stack.Screen name="Data" component={Data} />
         <Stack.Screen
           name="Login"

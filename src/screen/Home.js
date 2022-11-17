@@ -10,9 +10,7 @@ const Home = () => {
       <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
         <Text>Click</Text>
      </TouchableOpacity>
-      <TouchableOpacity onPress={()=>console.log('pra')}>
-        <Text>Click</Text>
-     </TouchableOpacity>
+    
     </View>
   )
 }

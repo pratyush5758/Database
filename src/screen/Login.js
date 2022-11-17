@@ -156,7 +156,7 @@ const Login = () => {
           Continue
         </Text>
       </TouchableOpacity> */}
-      <View style={{paddingVertical:20}}>
+      <View style={{paddingVertical:20,}}>
 
       <Button
       onPress={()=>navigation.navigate('Data',{firstname:firstName,lastname:lastName,email:email,dateofbirth:dateOfbirth,phonenumber:phoneNumber,state:state,city:city,pincode:pincode,plotno:plotNo,address:address,countryname:countryName})}
