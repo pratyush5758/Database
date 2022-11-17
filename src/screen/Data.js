@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
     fontWeight: 'bold',
     // textAlign:'center',
+    color:'black',
+    lineHeight:30
   },
   NameText: {
     fontWeight: 'bold',
