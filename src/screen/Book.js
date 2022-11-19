@@ -12,6 +12,7 @@ import React from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {IMAGES} from '../assets';
+import Feather from 'react-native-vector-icons/Feather'
 
 const Book = () => {
   return (
@@ -75,6 +76,13 @@ const Book = () => {
             <Button title='Next page'/>
           </View>
         </View>
+        <View style={styles.icon}>
+            <AntDesign name='home' size={30} color={'red'}/>
+            <AntDesign name='linechart' size={30}/>
+            <Entypo name='mic' size={30}/>
+            <Feather name='bookmark' size={30}/>
+            <Entypo name='user' size={30}/> 
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -122,5 +130,11 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginHorizontal:30,
 
+  },
+  icon:{
+    flexDirection:'row',
+    justifyContent: 'space-between',
+    marginHorizontal:30
+    
   }
 });
