@@ -1,19 +1,22 @@
-// import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-// import React from 'react'
-// import { useNavigation } from '@react-navigation/native'
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
+import React from 'react'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 
 
-// const DetailsScreen = () => {
-//     const navigation = useNavigation()
-//   return (
-//     <TouchableOpacity onPress={()=>navigation.navigate('Checkout')}>
+const DetailsScreen = () => {
+    const navigation = useNavigation()
+    const route = useRoute()
+    console.log(route)
+  return (
+    <View>
     
-//       <Text>CheckOut</Text>
-//     </TouchableOpacity>
-//   )
-// }
+      <Text>{route.params.pratyuh.id}</Text>
+      <Image source={route.params.pratyuh.Image}/>
+    </View>
+  )
+}
 
-// export default DetailsScreen
+export default DetailsScreen
 
-// const styles = StyleSheet.create({})
+const styles = StyleSheet.create({})

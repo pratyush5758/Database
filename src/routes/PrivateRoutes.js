@@ -3,6 +3,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Book, Data, Login} from '../screen';
 import {Bottomtab} from './Layouts/Index';
+import DetailsScreen from '../screen/DetailsScreen';
 
 const Stack = createNativeStackNavigator();
 const PrivateRoutes = () => {
@@ -17,6 +18,7 @@ const PrivateRoutes = () => {
         }}
       /> */}
       <Stack.Screen name="Book" component={Book} />
+      <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
       <Stack.Screen
         name="Login"
         component={Login}

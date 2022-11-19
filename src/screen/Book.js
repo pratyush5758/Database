@@ -8,12 +8,14 @@ import {
   ScrollView,
   Button,
   FlatList,
+  Dimensions,
 } from 'react-native';
 import React from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {IMAGES} from '../assets';
 import Feather from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 const Book_1 = [
   {
     id: 'book1',
@@ -27,26 +29,39 @@ const Book_1 = [
     id: 'book3',
     Image: IMAGES.Book3,
   },
-];
-const Book_2 = [
   {
-    id: 'book1',
+    id: 'book4',
     Image: IMAGES.Book4,
   },
   {
-    id: 'book2',
+    id: 'book5',
     Image: IMAGES.Book5,
   },
   {
-    id: 'book3',
+    id: 'book6',
     Image: IMAGES.Book6,
   },
 ];
 const Book = () => {
+    const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.mainview}>
-      <ScrollView>
-        <View style={styles.main}>
+      {/* <ScrollView> */}
+      {/* {
+        Book_1.map(item=>(
+            <>
+
+
+            </>
+        ))
+      } */}
+       
+        <View style={{marginTop:20}}>
+          <FlatList
+          contentContainerStyle={{paddingBottom:20}}
+        ListHeaderComponent={
+            <>
+                 <View style={styles.main}>
           <Entypo name="menu" size={30} color={'black'} />
           <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
             All Books
@@ -74,19 +89,33 @@ const Book = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.flatlist}>
-          <FlatList
-            horizontal={false}
+            </>
+        }
+            numColumns={2}
             data={Book_1}
-            renderItem={({item}) => (
-              <TouchableOpacity>
-                <View style={styles.book1}>
+            renderItem={({item,index}) => (
+              <TouchableOpacity style={styles.book1} onPress={()=>navigation.navigate('DetailsScreen',{pratyuh:item})}>
+                <View>
                   <Image style={styles.img} source={item?.Image} />
                 </View>
               </TouchableOpacity>
             )}
+            ListFooterComponent={
+                <>
+  <View style={styles.button}>
+          <Button title="Next page" />
+        </View>
+        <View style={styles.icon}>
+          <AntDesign name="home" size={30} color={'red'} />
+          <AntDesign name="linechart" size={30} />
+          <Entypo name="mic" size={30} />
+          <Feather name="bookmark" size={30} />
+          <Entypo name="user" size={30} />
+        </View>
+                </>
+            }
           />
-          <FlatList
+          {/* <FlatList
             horizontal={false}
             data={Book_2}
             renderItem={({item}) => (
@@ -96,7 +125,7 @@ const Book = () => {
                 </View>
               </TouchableOpacity>
             )}
-          />
+          /> */}
         </View>
 
         {/* <View style={styles.second}>
@@ -125,17 +154,8 @@ const Book = () => {
             </View>
           </View>
         </View> */}
-        <View style={styles.button}>
-          <Button title="Next page" />
-        </View>
-        <View style={styles.icon}>
-          <AntDesign name="home" size={30} color={'red'} />
-          <AntDesign name="linechart" size={30} />
-          <Entypo name="mic" size={30} />
-          <Feather name="bookmark" size={30} />
-          <Entypo name="user" size={30} />
-        </View>
-      </ScrollView>
+      
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };
@@ -159,17 +179,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     borderRadius: 10,
+    marginBottom:20
   },
   book1: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginVertical: 5,
-    
+    // flexDirection: 'row',
+    // justifyContent: 'space-evenly',
+    marginLeft:14,
+    marginBottom:10,
+    width: Dimensions.get('window').width/2.2
   },
   img: {
     borderRadius: 15,
     height: 280,
-    width: 170,
+    width: 180,
   },
 //   second: {
 //     marginVertical: 15,
