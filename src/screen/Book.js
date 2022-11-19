@@ -7,19 +7,46 @@ import {
   Image,
   ScrollView,
   Button,
+  FlatList,
 } from 'react-native';
 import React from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {IMAGES} from '../assets';
-import Feather from 'react-native-vector-icons/Feather'
-
+import Feather from 'react-native-vector-icons/Feather';
+const Book_1 = [
+  {
+    id: 'book1',
+    Image: IMAGES.Book1,
+  },
+  {
+    id: 'book2',
+    Image: IMAGES.Book2,
+  },
+  {
+    id: 'book3',
+    Image: IMAGES.Book3,
+  },
+];
+const Book_2 = [
+  {
+    id: 'book1',
+    Image: IMAGES.Book4,
+  },
+  {
+    id: 'book2',
+    Image: IMAGES.Book5,
+  },
+  {
+    id: 'book3',
+    Image: IMAGES.Book6,
+  },
+];
 const Book = () => {
   return (
     <SafeAreaView style={styles.mainview}>
       <ScrollView>
-        <View
-          style={styles.main}>
+        <View style={styles.main}>
           <Entypo name="menu" size={30} color={'black'} />
           <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
             All Books
@@ -47,7 +74,32 @@ const Book = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.second}>
+        <View style={styles.flatlist}>
+          <FlatList
+            horizontal={false}
+            data={Book_1}
+            renderItem={({item}) => (
+              <TouchableOpacity>
+                <View style={styles.book1}>
+                  <Image style={styles.img} source={item?.Image} />
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+          <FlatList
+            horizontal={false}
+            data={Book_2}
+            renderItem={({item}) => (
+              <TouchableOpacity>
+                <View style={styles.book1}>
+                  <Image style={styles.img} source={item?.Image} />
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+
+        {/* <View style={styles.second}>
           <View style={styles.book1}>
             <View>
               <Image source={IMAGES.Book1} style={styles.img} />
@@ -72,16 +124,16 @@ const Book = () => {
               <Image source={IMAGES.Book6} style={styles.img} />
             </View>
           </View>
-          <View style={styles.button}>
-            <Button title='Next page'/>
-          </View>
+        </View> */}
+        <View style={styles.button}>
+          <Button title="Next page" />
         </View>
         <View style={styles.icon}>
-            <AntDesign name='home' size={30} color={'red'}/>
-            <AntDesign name='linechart' size={30}/>
-            <Entypo name='mic' size={30}/>
-            <Feather name='bookmark' size={30}/>
-            <Entypo name='user' size={30}/> 
+          <AntDesign name="home" size={30} color={'red'} />
+          <AntDesign name="linechart" size={30} />
+          <Entypo name="mic" size={30} />
+          <Feather name="bookmark" size={30} />
+          <Entypo name="user" size={30} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -91,12 +143,12 @@ const Book = () => {
 export default Book;
 
 const styles = StyleSheet.create({
-    main:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: 10,
-    },
+  main: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+  },
   book: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -112,29 +164,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     marginVertical: 5,
-    marginHorizontal: 10,
+    
   },
   img: {
     borderRadius: 15,
     height: 280,
     width: 170,
   },
-  second:{
-    marginVertical:15,
-
+//   second: {
+//     marginVertical: 15,
+//   },
+  mainview: {
+    backgroundColor: 'white',
   },
-  mainview:{
-    backgroundColor:'white',
+  button: {
+    marginTop: 10,
+    marginHorizontal: 30,
   },
-  button:{
-    marginTop:10,
-    marginHorizontal:30,
-
-  },
-  icon:{
-    flexDirection:'row',
+  icon: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal:30
-    
-  }
+    marginHorizontal: 30,
+    marginTop:10
+  },
+  flatlist:{
+    flexDirection: 'row',
+    marginTop:15,
+    marginHorizontal:20,
+  },
 });
