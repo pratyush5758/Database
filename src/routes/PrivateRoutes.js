@@ -17,7 +17,9 @@ const PrivateRoutes = () => {
           headerShown: false,
         }}
       /> */}
-      <Stack.Screen name="Book" component={Book} />
+      <Stack.Screen name="Book" component={Book} options={{
+headerShown: false,
+      }} />
       <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
       <Stack.Screen
         name="Login"

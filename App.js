@@ -25,8 +25,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Routes/>
-     
     </NavigationContainer>
+     
   );
 };
 
